@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Tasks</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="icon" type="image/ico" href="/todo/static/img/favicon.ico" />
+
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+    <!-- CSS Files -->
+    <link href="/todo/static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/todo/static/css/material-bootstrap-wizard.css" rel="stylesheet" />
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="/todo/static/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="image-container set-full-height" style="background-image: url('/todo/static/img/cyber.jpg')">
+        <!--   Big container   -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <!--      Wizard container        -->
+                    <div class="wizard-container">
+                        <div class="card wizard-card" data-color="green" id="wizard">
+                                <!-- <div class="wizard-header">
+                                    <h2 class="wizard-title">
+                                        My Tasks
+                                    </h2>
+                                    <div class="picture-container-container">
+                                        <div class="picture-container">
+                                            <div class="picture">
+                                                <img src="/static/img/default-avatar.png" class="picture picture-src"
+                                                    id="wizardPicturePreview" title="" />
+                                                <input type="file" id="wizard-picture">
+                                            </div>
+                                            <h6>Timothy</h6>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="wizard-navigation">
+                                    <ul>
+                                        <li><a href="#details" data-toggle="tab">New</a></li>
+                                        <li><a href="#captain" data-toggle="tab">Pending</a></li>
+                                        <li><a href="#description" data-toggle="tab">Done</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="details">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h4 class="info-text"> Recently added Tasks</h4>
+                                            </div>
+
+                                        </div>
+                                        <form action="" method="post" class="pull-le" style="padding: 10px;">
+                                            <input type="button" class="btn btn-primary" value="Add +" onclick="new_task(event, 'new-task')">
+                                                <div id="new-task" class="form-row">
+                                                    <div class="col">
+                                                        <label for="due-date">Due Date</label>
+                                                        <!-- <input type="datetime-local" name="Due Date" id="due-date" class="form-control form-control-sm"> -->
+                                                        <input type="text" name="Due Date" id="due-date" class="form-control form-control-sm" placeholder="Click to add date">
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="task">Task</label>
+                                                        <input type="text" class="form-control" id="task" placeholder="Subject">
+                                                        <textarea name="" id="task" cols="30" rows="5" class="form-control" placeholder="Description..."></textarea>
+                                                    </div>
+                                                </div>
+                                        </form>
+                                        <div class="card" style="width: 100%; padding-top: 20px;">
+                                            <div class="card-body">
+                                                <ul class="list-group">
+                                                    <!-- {% block content %} -->
+                                                    <!-- {% endblock %} -->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="captain">
+                                        <h4 class="info-text">Started Tasks that yet to be completed</h4>
+                                        <div class="row">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="description">
+                                        <div class="row">
+                                            <h4 class="info-text">Completed Tasks</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div> <!-- wizard container -->
+            </div>
+        </div> <!-- row -->
+    </div> <!--  big container -->
+</body>
+<!--   Core JS Files   -->
+<script src="/todo/static/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script src="/todo/static/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/todo/static/js/jquery.bootstrap.js" type="text/javascript"></script>
+
+<!--  Plugin for the Wizard -->
+<script src="/todo/static/js/material-bootstrap-wizard.js"></script>
+<script src="/todo/static/js/script.js"></script>
+
+<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="/todo/static/js/jquery.validate.min.js"></script>
+
+</html>
