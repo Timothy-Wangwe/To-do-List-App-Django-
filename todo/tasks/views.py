@@ -3,7 +3,8 @@ from django.http import HttpResponse
 
 
 def summary_view(request):
-    return HttpResponse("A summary of all tasks come here...")
+    # tasks = Tasks.objects.all()
+    return render(request, 'index.html')
     
 def new_view(request):
     return HttpResponse("New tasks come here...")
