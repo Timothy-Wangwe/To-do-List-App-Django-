@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="card" style="width: 100%; padding-top: 20px;">
-    <div class="card-body">
-        <ul class="list-group">
-            <!-- {% for task in tasks %}
-            <li class="list-group-item">{{task.subject}}</li>
-            {% endfor %} -->
-            <li class="list-group-item">Item one Test</li>
-        </ul>
+{% for task in tasks %}
+    <div class="card border-success mb-3">
+        <div class="card-header bg-transparent border-success">{{task.subject}}</div>
+        <div class="card-body text-success">
+            <p class="card-text">{{task.description}}</p>
+        </div>
+        <div class="card-footer bg-transparent border-success">{{task.date}}</div>
     </div>
-</div>
+{% endfor %}
 {% endblock %}
