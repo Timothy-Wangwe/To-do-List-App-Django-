@@ -58,21 +58,18 @@
 
                                     </div>
                                     <form action="" method="post" style="padding: 10px;">
-                                        <input type="button" class="btn btn-primary" value="Add +" onclick="new_task(event, 'new-task');" id="add">
-                                        <input type="button" class="btn btn-outline-danger" value="Cancel" onclick="cancel_new_task(event, 'new-task');" id="cancel">
+                                        <input type="button" class="btn btn-success" value="Add +" onclick="new_task(event, 'new-task');" id="add">
                                         <div id="new-task" class="form-row">
                                             <div class="col">
                                                 <label for="due-date">Due Date</label>
-                                                <!-- <input type="datetime-local" name="Due Date" id="due-date" class="form-control form-control-sm"> -->
-                                                <input type="text" name="Due Date" id="due-date"
-                                                    class="form-control form-control-sm"
-                                                    placeholder="Click to add date">
-                                            </div>
-                                            <div class="col">
+                                                <input type="text" name="Due Date" id="due-date" class="form-control form-control-sm" placeholder="Click to add date">
+
                                                 <label for="task">Task</label>
                                                 <input type="text" class="form-control" id="task" placeholder="Subject">
-                                                <textarea name="" id="task" cols="30" rows="5" class="form-control"
-                                                    placeholder="Description..."></textarea>
+
+                                                <textarea name="" id="task" cols="30" rows="5" class="form-control" placeholder="Description..."></textarea>
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                <input type="button" class="btn btn-outline-danger" value="Cancel" onclick="cancel_new_task(event, 'new-task');" id="cancel">
                                             </div>
                                         </div>
                                     </form>
