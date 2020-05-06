@@ -1,6 +1,7 @@
-#new-task{
+#cancel, #new-task{
     display: none;
 }
+
 input[type='datetime-local']{
     width: 35%;
 }
