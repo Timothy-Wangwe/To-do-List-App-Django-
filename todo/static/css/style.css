@@ -5,3 +5,11 @@
 input[type='datetime-local']{
     width: 35%;
 }
+
+.nav-item{
+    padding: 0px 5px;
+}
+
+.navbar-nav {
+    vertical-align:middle !important;
+}

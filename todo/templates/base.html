@@ -35,12 +35,37 @@
                 <div class="col-sm-8 col-sm-offset-2">
                     <!--      Wizard container        -->
                     <div class="wizard-container">
+                        <nav class="navbar navbar-expand navbar-light bg-light">
+                            <a href="#" class="fas fa-tasks fa-2x text-success" style="text-decoration: none;"> TASKS</a>
+                            <!-- <a href="#" class="navbar-brand text-success"> <b>TASKS</b></a> -->
+                            <ul class="navbar-nav ml-auto" style="float: right;">
+                                
+                                <li class="nav-item" style="padding-top: 10px;" >
+                                    <i class="fas fa-code-branch fa-2x"></i>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://github.com/timothy-wangwe/Toilet-Paper-Calculator"
+                                        class="nav-link">Repository</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <i class="fab fa-github-square fa-2x" style="padding-top: 10px;"></i>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://github.com/timothy-wangwe" class="nav-link">Author</a>
+                                </li>
+
+                                <li class="nav-item" style="padding-top: 10px;">
+                                    <i class="fab fa-linkedin fa-2x"></i>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://www.linkedin.com/in/timothy-wangwe" class="nav-link">LinkedIn</a>
+                                </li>
+                            </ul>	
+                        </nav>
+                    </div>
+                    <div class="wizard-container-fluid" style="padding-top: 1px !important;">
                         <div class="card wizard-card" data-color="green" id="wizard">
-                            <div class="wizard-header">
-                                    <h2 class="wizard-title">
-                                        My Tasks
-                                    </h2>
-                                </div>
                             <div class="wizard-navigation">
                                 <ul>
                                     <li><a href="#details" data-toggle="tab">New</a></li>
@@ -55,7 +80,6 @@
                                         <div class="col-sm-12">
                                             <h4 class="info-text"> Recently added Tasks</h4>
                                         </div>
-
                                     </div>
                                     <form action="" method="post" style="padding: 10px;">
                                         <input type="button" class="btn btn-success" value="Add +" onclick="new_task(event, 'new-task');" id="add">
@@ -82,10 +106,12 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="description">
+                                    <h4 class="info-text">Completed Tasks</h4>
                                     <div class="row">
-                                        <h4 class="info-text">Completed Tasks</h4>
                                     </div>
                                 </div>
+                                {% block form %}
+                                {% endblock %}
                             </div>
                         </div>
                     </div>
@@ -105,5 +131,5 @@
 
 <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 <script src="{% static '/js/jquery.validate.min.js' %}"></script>
-
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </html>

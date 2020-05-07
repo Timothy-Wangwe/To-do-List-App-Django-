@@ -2,12 +2,12 @@
 
 {% block content %}
 {% for task in tasks %}
-    <div class="card border-success mb-3">
-        <div class="card-header bg-transparent border-success">{{task.subject}}</div>
-        <div class="card-body text-success">
+    <div class="card mb-3">
+        <div class="card-header bg-transparent border-success text-success">{{task.subject}}</div>
+        <div class="card-body">
             <p class="card-text">{{task.description}}</p>
         </div>
-        <div class="card-footer bg-transparent border-success">{{task.date}}</div>
+        <div class="card-footer bg-transparent border-primary text-primary">{{task.date}}</div>
     </div>
 {% endfor %}
 {% endblock %}

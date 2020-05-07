@@ -76,7 +76,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
     opacity: .3; }
     
 .wizard-container {
-  padding-top: 100px;
+  padding-top: 15px;
   z-index: 3; }
   .wizard-container .wizard-navigation {
     position: relative; }
