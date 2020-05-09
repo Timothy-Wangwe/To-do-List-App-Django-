@@ -13,3 +13,47 @@ input[type='datetime-local']{
 .navbar-nav {
     vertical-align:middle !important;
 }
+.navbar-brand {
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.nav-icons {
+    padding-top: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.stick-top {
+    overflow: hidden;
+    position: fixed;
+    width: 54%;
+}
+
+@media only screen and (max-width: 600px){
+    .nav-item{
+        padding: 0px 0px;
+    }
+    
+    .navbar-nav {
+        vertical-align:middle !important;
+    }
+    .navbar-brand {
+        font-size: 20px;
+        padding: 0px 0px;
+        text-decoration: none;
+    }
+    
+    .nav-icons {
+        padding-top: 10px;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .stick-top {
+        overflow: hidden;
+        position: fixed;
+        width: 92%;
+    }
+    
+}
