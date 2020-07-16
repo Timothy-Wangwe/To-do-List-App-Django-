@@ -22,10 +22,14 @@ nav {
     font-weight: 200;
     font-size: medium !important;
 }
-.nav-brand{
+.nav-brand a{
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
     color: #00ab6b;
+}
+.nav-brand a:hover{
+    color: #00ab6b;
+    text-decoration: none;
 }
 ::selection{
     color: #00ab6b;
