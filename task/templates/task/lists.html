@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block lists %}
+<div class="h-75 justify-content-center align-items-center  text-center">
+    <h4>
+        <>Name of List<>
+    </h4>
+    <form class="form-group" action="" method="post">
+        {% csrf_token %}
+        <input type="text" class="form-control mb-2 mr-md-2" name="list" placeholder="New task...">
+        <button type="submit" class="btn btn-outline mb-2 ">Submit</button>
+    </form>
+    <div class="row text-left">
+        <div class="col-sm-6">
+            <b>PENDING</b>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <input type="checkbox" id="checkbox" data-todo-id=""> Cras justo odio
+                </li>
+                <li class="list-group-item">
+                    <input type="checkbox" id="checkbox" data-todo-id=""> Dapibus ac facilisisin
+                </li>
+                <li class="list-group-item">
+                    <input type="checkbox" id="checkbox" data-todo-id=""> Morbi leo risus
+                </li>
+                <li class="list-group-item">
+                    <input type="checkbox" id="checkbox" data-todo-id=""> Porta ac consecteturac
+                </li>
+                <li class="list-group-item">
+                    <input type="checkbox" id="checkbox" data-todo-id=""> Vestibulum at eros
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <b>COMPLETED</b>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <input type="checkbox" id="checkbox" checked="checked" data-todo-id=""> Cras justo odio
+                </li>
+                <li class="list-group-item">
+                    <input type="checkbox" id="checkbox" checked="checked" data-todo-id=""> Dapibus ac facilisisin
+                </li>
+                <li class="list-group-item">
+                    <input type="checkbox" id="checkbox" checked="checked" data-todo-id=""> Morbi leo risus
+                </li>
+                <li class="list-group-item">
+                    <input type="checkbox" id="checkbox" checked="checked" data-todo-id=""> Porta ac consecteturac
+                </li>
+                <li class="list-group-item">
+                    <input type="checkbox" id="checkbox" checked="checked" data-todo-id=""> Vestibulum at eros
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock lists %}
