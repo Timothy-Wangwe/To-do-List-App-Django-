@@ -40,6 +40,23 @@ nav a{
 }
 nav a:hover{
     color: #00ab6b;
-    text-decoration: none;
+    text-decoration: overline;
 }
 
+.btn-outline {
+    text-transform: uppercase;
+    border: 1.4px solid #00ab6b !important;
+}
+
+.btn-outline:hover {
+    color: #ffffff !important;
+    background-color: #00ab6b;
+}
+
+.form-control{
+    border-color: #00ab6b !important;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0,171,107, 0.375) !important;
+}
