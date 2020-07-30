@@ -2,56 +2,28 @@
 
 {% block lists %}
 <div class="h-75 justify-content-center align-items-center  text-center">
-    <h4>
-        <>Name of List<>
-    </h4>
-    <form class="form-group" action="" method="post">
+    <form class="form-group text-center" action="{% url 'task:task_list' %}" method="post">
         {% csrf_token %}
-        <input type="text" class="form-control mb-2 mr-md-2" name="list" placeholder="New task...">
-        <button type="submit" class="btn btn-outline mb-2 ">Submit</button>
+        {{ form }}
+        <button type="submit" class="btn btn-outline mb-4 ">Submit</button>
     </form>
-    <div class="row text-left">
-        <div class="col-sm-6">
-            <b>PENDING</b>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <input type="checkbox" id="checkbox" data-todo-id=""> Cras justo odio
-                </li>
-                <li class="list-group-item">
-                    <input type="checkbox" id="checkbox" data-todo-id=""> Dapibus ac facilisisin
-                </li>
-                <li class="list-group-item">
-                    <input type="checkbox" id="checkbox" data-todo-id=""> Morbi leo risus
-                </li>
-                <li class="list-group-item">
-                    <input type="checkbox" id="checkbox" data-todo-id=""> Porta ac consecteturac
-                </li>
-                <li class="list-group-item">
-                    <input type="checkbox" id="checkbox" data-todo-id=""> Vestibulum at eros
-                </li>
-            </ul>
-        </div>
-        <div class="col-sm-6">
-            <b>COMPLETED</b>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <input type="checkbox" id="checkbox" checked="checked" data-todo-id=""> Cras justo odio
-                </li>
-                <li class="list-group-item">
-                    <input type="checkbox" id="checkbox" checked="checked" data-todo-id=""> Dapibus ac facilisisin
-                </li>
-                <li class="list-group-item">
-                    <input type="checkbox" id="checkbox" checked="checked" data-todo-id=""> Morbi leo risus
-                </li>
-                <li class="list-group-item">
-                    <input type="checkbox" id="checkbox" checked="checked" data-todo-id=""> Porta ac consecteturac
-                </li>
-                <li class="list-group-item">
-                    <input type="checkbox" id="checkbox" checked="checked" data-todo-id=""> Vestibulum at eros
-                </li>
-            </ul>
+    {% if len == 0 %}
+    <div class="text-center mt-4">
+        <h2> It looks like your schedule is clear... </h2>
+    </div>
+    {% else %}
+    <h4> <b> Task Lists </b> <small class="text-muted">{{len}}</small></h4>
+    <div class="text-left">
+        <div class="list-group">
+            {% for list in tasklists %}
+            <div class="list-group-item list-group-item-action">
+                <a href="{{ list.id }}" class="custom-link">{{ list.title }}</a>
+                <button class="btn btn-outline-danger float-right">X</button>
+            </div>
+            {% endfor %}
         </div>
     </div>
+    {% endif %}
 </div>
 
 {% endblock lists %}
