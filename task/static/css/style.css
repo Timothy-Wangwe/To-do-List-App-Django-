@@ -35,9 +35,11 @@ nav {
     color: #00ab6b;
     background-color: #00ab6c1a;
 }
+.custom-link,
 nav a{
     color: #000;
 }
+.custom-link:hover,
 nav a:hover{
     color: #00ab6b;
     text-decoration: overline;
