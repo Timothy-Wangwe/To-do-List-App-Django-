@@ -2,11 +2,10 @@
 
 {% block newlist %}
 <div class="row h-75 justify-content-center align-items-center  text-center">
-    <form class="form-group text-center" action="lists/1/" method="post">
+    <form class="form-group text-center" action="{% url 'task:task_list' %}" method="post">
         {% csrf_token %}
-        <input type="text" class="form-control mb-2 mr-md-2" name="list" placeholder="New list...">
+        {{ form }}
         <button type="submit" class="btn btn-outline mb-2 ">Submit</button>
     </form>
 </div>
-
 {% endblock newlist %}
