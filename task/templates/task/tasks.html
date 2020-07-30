@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block lists %}
+<div class="h-75 justify-content-center align-items-center  text-center">
+    <h4><b>{{ task_list.title }}</b></h4> <small class="text-muted">Created in {{ task_list.created }} </small>
+    <form class="form-group" action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-outline mb-2 ">Submit</button>
+    </form>
+    {% if len == 0 %}
+    <div class="text-center mt-4">
+        <h2> It looks like this list has not tasks yet... </h2>
+    </div>
+    {% else %}
+   <div class="row text-left">
+        <div class="col-sm-6">
+            <h4><b>Pending</b></h4>
+            {% for task in tasks %}
+            {% if not task.is_complete %}
+            <li class="list-group-item">
+                <input type="checkbox" id="checkbox" data-todo-id=""> {{ task.description }}
+            </li>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-sm-6">
+            <h4><b>Completed</b></h4>
+            {% for task in tasks %}
+            {% if task.is_complete %}
+            <li class="list-group-item">
+                <input type="checkbox" id="checkbox" checked="checked" data-todo-id=""> {{ task.description }}
+            </li>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock lists %}
