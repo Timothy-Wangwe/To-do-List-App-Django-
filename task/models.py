@@ -12,12 +12,15 @@ class TaskList(models.Model):
 		return self.title
 
 	def count(self):
+		"""Returns count of all tasks in related list"""
 		return self.tasks.count()
 
 	def count_complete(self):
+		"""Returns count of all complete tasks in related list"""
 		return self.tasks.filter(is_complete=True).count()
 
 	def count_incomplete(self):
+		"""Returns count of all incomplete tasks in related list"""
 		return self.tasks.filter(is_complete=False).count()
 
 
