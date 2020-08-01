@@ -9,7 +9,7 @@ def form_kwargs(widget, label, max_length):
 class TaskListForm(forms.Form):
 	title = forms.CharField(
 		**form_kwargs(
-			widget = forms.TextInput(attrs=widget_attrs('Enter the title of your new list...')),
+			widget = forms.TextInput(attrs=widget_attrs('Start a new list of tasks')),
 			label='',
 			max_length=20
 			)
@@ -18,7 +18,7 @@ class TaskListForm(forms.Form):
 class TaskForm(forms.Form):
 	description = forms.CharField(
 		**form_kwargs(
-			widget = forms.TextInput(attrs=widget_attrs('Description of your task...')),
+			widget = forms.TextInput(attrs=widget_attrs('Describe your tasks here')),
 			label='',
 			max_length=255
 			)
