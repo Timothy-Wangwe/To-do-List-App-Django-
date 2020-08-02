@@ -62,3 +62,10 @@ nav a:hover{
 .form-control:focus {
     box-shadow: 0 0 0 0.2rem rgba(0,171,107, 0.375) !important;
 }
+
+.progress{
+    height: 10px !important;
+}
+.progress-bar{
+    background-color: #00ab6b !important;
+}
