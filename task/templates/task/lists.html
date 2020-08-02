@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %} Tasklists - Timothy {% endblock title %}
 
 {% block lists %}
 <div class="h-75 justify-content-center align-items-center  text-center">
@@ -15,15 +18,18 @@
     <h4> <b> Task Lists </b> <small class="text-muted">{{len}}</small></h4>
     <div class="text-left">
         <div class="list-group">
+        <div class="list-group-item list-group-item-success">
+            <div class="float-left"><h5><b>List Title</b></h5></div>
+            <div class="float-right"><h5><b>Created</b></h5></div>
+            </div>
             {% for list in tasklists %}
             <div class="list-group-item list-group-item-action">
-                <a href="{{ list.id }}" class="custom-link">{{ list.title }}</a>
-                <button class="btn btn-outline-danger float-right">X</button>
+                <a href="{{ list.id }}" class="custom-link"> <b>{{ list.title }}</b> </a>
+                <div class="float-right"> {{ list.created|naturaltime }} </div>
             </div>
             {% endfor %}
         </div>
     </div>
     {% endif %}
 </div>
-
 {% endblock lists %}
