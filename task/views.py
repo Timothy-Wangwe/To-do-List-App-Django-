@@ -17,7 +17,7 @@ def task_list(request):
 		if form.is_valid():
 			tasklist = TaskList(
 				title=request.POST['title'],
-				created=datetime.now(),
+				created=timezone.now(),
 				)
 			tasklist.save()
 			return redirect('task:task_list')
@@ -45,11 +45,18 @@ def task_display(request, pk):
 
 	task_list = get_object_or_404(TaskList, pk=pk)
 	tasks = task_list.tasks.all()
-	length = len(tasks)
+	length = task_list.count()
+	complete_length = task_list.count_complete()
+	incomplete_length = task_list.count_incomplete()
+	if length != 0:
+		progress = round((complete_length/length)*100, 0)
 	context = {
 		'task_list':task_list,
 		'tasks':tasks,
 		'len':length,
+		'complete':complete_length,
+		'incomplete':incomplete_length,
+		'progress':progress,
 		'form':TaskForm(),
 		}
 	return render(request, 'task/tasks.html', context)
