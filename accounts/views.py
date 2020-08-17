@@ -12,6 +12,8 @@ def register(request):
 		form = RegistrationForm(request.POST)
 		if form.is_valid():
 			User.objects.create_user(
+				first_name=request.POST['first_name'],
+				last_name=request.POST['last_name'],
 				username=request.POST['username'],
 				email=request.POST['email'],
 				password=request.POST['password'],
@@ -35,7 +37,7 @@ def login_view(request):
 			if user is not None:
 				if user.is_active:
 					login(request, user)
-					messages.success(request, f'Welcome, {user.username}!')
+					messages.success(request, f'Welcome, {user.first_name}!')
 					return redirect('task:task_list')
 		else:
 			return render(request, 'accounts/login.html', {'form':form})

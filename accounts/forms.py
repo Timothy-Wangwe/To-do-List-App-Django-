@@ -8,6 +8,20 @@ def form_kwargs(widget, label, max_length):
 	return {'widget':widget, 'label': label, 'max_length': max_length}
 
 class RegistrationForm(forms.Form):
+	first_name = forms.CharField(
+		**form_kwargs(
+			widget = forms.TextInput(attrs=widget_attrs('First name')),
+			label = '',
+			max_length = 20
+		)
+	)
+	last_name = forms.CharField(
+		**form_kwargs(
+			widget = forms.TextInput(attrs=widget_attrs('Last name')),
+			label = '',
+			max_length = 20
+		)
+	)
 	username = forms.CharField(
 		**form_kwargs(
 			widget = forms.TextInput(attrs=widget_attrs('Username')),
