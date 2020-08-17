@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible text-center">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> <br> {{message}}
+</div>
+{% endfor %}
+
+<div class="row h-75 justify-content-center align-items-center  text-center">
+    <form class="form-group" action="{% url 'accounts:login' %}" method="post" novalidate>
+        <h3>Login</h3>
+        {% csrf_token %}
+        {{message}}
+        {% for hidden_field in form.hidden_fields %}
+            {{ hidden_field }}
+        {% endfor %}
+
+        {% if form.non_field_errors %}
+        <div class="alert alert-danger" role="alert">
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% for field in form.visible_fields %}
+        <div class="form-group">
+            {% if form.is_bound %}
+                {% if field.errors %}
+                    {% render_field field class="form-control is-invalid" %}
+                    {% for error in field.errors %}
+                        <div class="invalid-feedback">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% render_field field class="form-control is-valid" %}
+                {% endif %}
+            {% else %}
+                {% render_field field class="form-control" %}
+            {% endif %}
+            {% if field.help_text %}
+                <small class="form-text text-muted">{{ field.help_text }}</small>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-outline mb-4 ">Login</button> <br>
+        Don't have an account yet? <a href="{% url 'accounts:register' %}" class="custom-link">Register here</a>
+    </form>
+</div>
+{% endblock content %}
