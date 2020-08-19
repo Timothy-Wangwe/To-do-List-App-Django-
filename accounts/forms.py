@@ -92,3 +92,20 @@ class LoginForm(forms.Form):
 				raise forms.ValidationError('Password Incorrect!')
 
 			return self.cleaned_data
+
+class ProfileForm(forms.ModelForm):
+	class Meta:
+		model = User
+		fields = ['username', 'first_name', 'last_name', 'email']
+
+	def clean(self):
+		username = self.cleaned_data.get('username')
+		first_name = self.cleaned_data.get('first_name')
+		last_name = self.cleaned_data.get('last_name')
+		email = self.cleaned_data.get('email')
+
+		if email and User.objects.filter(email=email).exclude(username=username).count():
+			raise forms.ValidationError('This email address is already in use. Please supply a different email address.')
+		
+		return self.cleaned_data
+		

@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
-from accounts.forms import RegistrationForm, LoginForm
+from accounts.forms import RegistrationForm, LoginForm, ProfileForm
 
 # Create your views here.
 def register(request):
@@ -48,3 +49,16 @@ def login_view(request):
 def logout_view(request):
 	logout(request)
 	return redirect('task:index')
+
+@login_required(login_url='/auth/login/')
+def profile(request):
+	if request.method == 'POST':
+		form = ProfileForm(request.POST, instance=request.user)
+		if form.is_valid():
+			form.save()
+			messages.success(request, 'Your Profile has been Updated!')
+			return redirect('accounts:profile')
+	else:
+		form = ProfileForm(instance=request.user)
+
+	return render(request, 'accounts/profile.html', {'form':form})
